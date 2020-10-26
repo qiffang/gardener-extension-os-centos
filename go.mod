@@ -1,4 +1,4 @@
-module github.com/tidbcloud/gardener-extension-os-centos8
+module github.com/tidbcloud/gardener-extension-os-centos
 
 go 1.14
 

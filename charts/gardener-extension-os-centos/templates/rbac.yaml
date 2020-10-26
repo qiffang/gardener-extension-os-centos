@@ -45,7 +45,7 @@ rules:
   resources:
   - configmaps
   resourceNames:
-  - centos8-leader-election
+  - centos-leader-election
   verbs:
   - get
   - watch
@@ -55,16 +55,16 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: gardener-extension-os-centos8
+  name: gardener-extension-os-centos
   labels:
-    app.kubernetes.io/name: gardener-extension-os-centos8
-    helm.sh/chart: gardener-extension-os-centos8
+    app.kubernetes.io/name: gardener-extension-os-centos
+    helm.sh/chart: gardener-extension-os-centos
     app.kubernetes.io/instance: {{ .Release.Name }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: gardener-extension-os-centos8
+  name: gardener-extension-os-centos
 subjects:
 - kind: ServiceAccount
-  name: gardener-extension-os-centos8
+  name: gardener-extension-os-centos
   namespace: {{ .Release.Namespace }}

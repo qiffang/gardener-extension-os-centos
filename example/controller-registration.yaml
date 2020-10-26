@@ -2,11 +2,11 @@
 apiVersion: core.gardener.cloud/v1beta1
 kind: ControllerRegistration
 metadata:
-  name: os-centos8
+  name: os-centos
 spec:
   resources:
   - kind: OperatingSystemConfig
-    type: centos8
+    type: centos
   deployment:
     type: helm
     providerConfig:
