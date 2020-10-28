@@ -2,10 +2,10 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: gardener-extension-os
+  name: gardener-extension-os-centos
   labels:
-    app.kubernetes.io/name: gardener-extension-os
-    helm.sh/chart: gardener-extension-os
+    app.kubernetes.io/name: gardener-extension-os-centos
+    helm.sh/chart: gardener-extension-os-centos
     app.kubernetes.io/instance: {{ .Release.Name }}
 rules:
 - apiGroups:
