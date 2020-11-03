@@ -17,5 +17,5 @@ gcloud auth application-default login
 3. Build CentOS image on GCP
 
 ``` shell
-packer build -var 'project=xxxx' gcp-centos.json
+packer build -var 'project=xxxx' -var 'tag=v20201030' -var 'location=us' gcp-centos.json
 ```
