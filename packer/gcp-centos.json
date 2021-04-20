@@ -7,7 +7,7 @@
         {
             "type": "googlecompute",
             "project_id": "{{user `project`}}",
-            "source_image": "centos-7-v20201030",
+            "source_image": "centos-7-v20210401",
             "ssh_username": "packer",
             "zone": "us-central1-a",
             "image_name": "centos-7-{{user `tag`}}",
@@ -23,9 +23,11 @@
             "inline": [
                 "sudo yum update -y",
                 "sudo yum install -y yum-utils",
+                "sudo yum -y install epel-release",
                 "sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo",
-                "sudo yum install -yy iptables docker-ce docker-ce-cli containerd.io socat nfs-utils logrotate jq wget cloud-init mdadm",
-                "sudo systemctl enable cloud-init"
+                "sudo yum install -yy iptables docker-ce-20.10.5 docker-ce-cli-20.10.5 containerd.io socat nfs-utils logrotate jq wget cloud-init mdadm",
+                "sudo systemctl enable cloud-init",
+                "echo \"PubkeyAuthentication yes\" | sudo tee -a  /etc/ssh/sshd_config"
             ]
         }
     ]
