@@ -1,0 +1,41 @@
+{
+  "variables": {
+    "profile": "",
+    "vpc_region": "",
+    "instance_type": "",
+    "source_ami": "",
+    "vpc_id": "",
+    "subnet_id": "",
+    "security_group_id": ""
+  },
+  "builders": [
+    {
+      "type": "amazon-ebs",
+      "access_key": "{{user `aws_access_key`}}",
+      "secret_key": "{{user `aws_secret_key`}}",
+      "region": "{{user `vpc_region`}}",
+      "vpc_id": "{{user `vpc_id`}}",
+      "subnet_id": "{{user `subnet_id`}}",
+      "security_group_id": "{{user `security_group_id`}}",
+      "associate_public_ip_address": true,
+      "instance_type": "{{user `instance_type`}}",
+      "ssh_username": "centos",
+      "ami_name": "centos-7-v20210420",
+      "source_ami": "{{user `source_ami`}}"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "sudo yum update -y",
+        "sudo yum install -y yum-utils",
+        "sudo yum -y install epel-release",
+        "sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo",
+        "sudo yum install -yy iptables docker-ce-20.10.5 docker-ce-cli-20.10.5 containerd.io socat nfs-utils logrotate jq wget cloud-init mdadm",
+        "sudo systemctl enable cloud-init",
+        "echo \"PubkeyAuthentication yes\" | sudo tee -a  /etc/ssh/sshd_config"
+      ]
+    }
+  ]
+}
