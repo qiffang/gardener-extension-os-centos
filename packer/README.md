@@ -32,7 +32,7 @@ packer build -var 'profile=dev' -var 'vpc_region=us-west-2' -var 'instance_type=
 3. Copy AMI to regions
 
 ```shell
-aws ec2 copy-image --source-image-id ami-xxx --source-region $sourceregion --name=centos-7-v20210420 --region=$targetregioon
+aws ec2 copy-image --source-image-id ami-xxx --source-region $sourceregion --name=centos-7-v20210420 --region=$targetregion
 ```
 
 4. Share AMI
