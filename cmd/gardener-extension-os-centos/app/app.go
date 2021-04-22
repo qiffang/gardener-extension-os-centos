@@ -25,7 +25,7 @@ import (
 
 var (
 	ctrlName = "centos"
-	osTypes  = []string{"centos"}
+	osTypes  = []string{"centos-v20210420"}
 )
 
 // NewControllerCommand returns a new Command with a new Generator

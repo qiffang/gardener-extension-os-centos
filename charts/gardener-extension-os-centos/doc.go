@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-//go:generate ../../vendor/github.com/gardener/gardener/hack/generate-controller-registration.sh os-centos . ../../VERSION ../../example/controller-registration.yaml OperatingSystemConfig:centos
+//go:generate ../../vendor/github.com/gardener/gardener/hack/generate-controller-registration.sh os-centos-v20210420 . ../../VERSION ../../example/controller-registration.yaml OperatingSystemConfig:centos-v20210420
 
 // Package chart enables go:generate support for generating the correct controller registration.
 package chart
