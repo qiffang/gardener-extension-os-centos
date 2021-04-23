@@ -4,7 +4,7 @@ kind: ClusterRole
 metadata:
   name: gardener-extension-os-centos-v20210420
   labels:
-    app.kubernetes.io/name: gardener-extension-os-centos
+    app.kubernetes.io/name: gardener-extension-os-centos-v20210420
     helm.sh/chart: gardener-extension-os-centos-v20210420
     app.kubernetes.io/instance: {{ .Release.Name }}
 rules:
