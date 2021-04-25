@@ -25,9 +25,12 @@
                 "sudo yum install -y yum-utils",
                 "sudo yum -y install epel-release",
                 "sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo",
-                "sudo yum install -yy iptables docker-ce-20.10.5 docker-ce-cli-20.10.5 containerd.io socat nfs-utils logrotate jq wget cloud-init mdadm",
+                "sudo yum install -yy iptables docker-ce-20.10.6 docker-ce-cli-20.10.6 containerd.io socat nfs-utils logrotate jq wget cloud-init mdadm",
                 "sudo systemctl enable cloud-init",
-                "echo \"PubkeyAuthentication yes\" | sudo tee -a  /etc/ssh/sshd_config"
+                "sudo echo \"PubkeyAuthentication yes\" | sudo tee -a  /etc/ssh/sshd_config",
+                "sudo systemctl restart sshd",
+                "sudo setenforce 0",
+                "sudo sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config"
             ]
         }
     ]
