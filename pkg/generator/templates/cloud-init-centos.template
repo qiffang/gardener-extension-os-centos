@@ -42,10 +42,11 @@ write_files:
 
 runcmd:
 - systemctl daemon-reload
-- systemctl restart sshd
 {{ if .Bootstrap -}}
 - systemctl restart docker
 {{ end -}}
 {{ range $_, $unit := .Units -}}
 - systemctl enable '{{ $unit.Name }}' && systemctl restart '{{ $unit.Name }}'
 {{ end -}}
+- sleep 40
+- systemctl restart sshd
